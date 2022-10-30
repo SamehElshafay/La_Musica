@@ -1,0 +1,181 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:elevation="10dp"
+    android:padding="5dp"
+    android:theme="@style/ThemeOverlay.LaMusica.AppWidgetContainer">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="5dp">
+
+        <LinearLayout
+            android:id="@+id/layoutImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/continer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/songImage"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@drawable/ic_launcher_foreground"
+                    tools:ignore="MissingClass,MissingConstraints,VectorDrawableCompat"
+                    tools:layout_editor_absoluteY="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutNameAndTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/timer"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="0dp">
+
+                    <TextView
+                        android:id="@+id/songName"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_margin="5dp"
+                        android:ellipsize="marquee"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="songName"
+                        android:textColor="@color/white"
+                        android:textSize="19dp" />
+
+                    <TextView
+                        android:id="@+id/songerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:text="songerName"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/timer"
+                    android:layout_width="120dp"
+                    android:layout_height="78dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        style="?android:progressBarStyleHorizontal"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="4dp"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="0"
+                        android:rotationX="20"
+                        android:rotationY="37"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints"
+                        tools:progress="60" />
+
+                    <TextView
+                        android:id="@+id/countdown"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:gravity="center"
+                        android:rotation="0"
+                        android:rotationX="20"
+                        android:rotationY="37"
+                        android:text="00:00"
+                        android:textColor="@color/white"
+                        android:textSize="26dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/progress"
+                        app:layout_constraintEnd_toEndOf="@+id/progress"
+                        app:layout_constraintStart_toStartOf="@+id/progress"
+                        app:layout_constraintTop_toTopOf="@+id/progress"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="-16dp"
+                        tools:layout_editor_absoluteY="-11dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/musicBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/favorite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_baseline_favorite_border_24"
+                    app:backgroundTint="@color/white" />
+
+                <Button
+                    android:id="@+id/previous"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/ic_baseline_skip_previous_24"
+                    app:backgroundTint="@color/white" />
+
+                <Button
+                    android:id="@+id/PlayPause"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/ic_baseline_play_arrow_24"
+                    app:backgroundTint="@color/white" />
+
+                <Button
+                    android:id="@+id/Next"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/ic_baseline_skip_next_24"
+                    app:backgroundTint="@color/white" />
+
+                <Button
+                    android:id="@+id/Loop"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_baseline_autorenew_24"
+                    app:backgroundTint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
